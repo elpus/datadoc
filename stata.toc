@@ -1,0 +1,8 @@
+v 1.2.7
+p 'DATADOC': Quickly create an MS Word DOCX codebook for data documentation from the current data frame
+d 'DATADOC': Quickly create an MS Word DOCX codebook for data documentation from the current data frame
+d Kenneth Elpus
+d
+d Distribution-Date: 20261013
+d
+d elpus@umd.edu

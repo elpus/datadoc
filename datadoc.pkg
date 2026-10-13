@@ -1,0 +1,22 @@
+v 1.2.7
+d DATADOC: Create a nicely formatted MS Word DOCX codebook for data documentation
+d
+d Export metadata and summary statistics from the current Stata data frame 
+d to a DOCX file codebook, aesthetically inspired by the formatting of codebooks  
+d distributed by ICPSR. Includes many customizable codebook elements.
+d
+d The accompanying Excel spreadsheet template can be used to quickly store 
+d variable metadata in Stata using variable characteristics datadoc can access 
+d and export. The spreadsheet will install with datadoc as an ancillary file 
+d located in the same ado PLUS directory as datadoc.
+d 
+d Requires: Stata 19+ 
+d 
+d Author: Kenneth Elpus
+d Support: provided as is with no support offered
+d
+d Distribution-Date: 20261013
+d
+f datadoc.ado
+f datadoc.sthlp
+F datadoc_metadata_prep.xltx
