@@ -172,7 +172,7 @@ If using codebook sections to group variables, there is a page break after the f
 
 | Option | Default and function |
 |---|---|
-| `quiet` | Suppress calculation/rendering progress and completion messages; still produces diagnostic tables and font notices; this is different behavior than Stata's `quietly` prefix; default is off. |
+| `quiet` | Suppress calculation/rendering progress and completion messages; still produces diagnostic tables; this is different behavior than Stata's `quietly` prefix; default is off. |
 | `reportwarnings` | Adds Review diagnostics to the Word document; default is off. |
 
 `quiet` suppresses the version banner, calculation progress, rendering progress, saving message, and final saved-file message. Classification reviews, the inferred-Identifier review, and undefined-code diagnostics notices remain visible even under `quiet`. Stata may print its own save confirmation. Stata’s `quietly` prefix suppresses Results output separately from datadoc’s `quiet` option.
