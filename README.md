@@ -58,7 +58,7 @@ net from "https://raw.githubusercontent.com/elpus/datadoc/main/"
 net install datadoc
 ```
 
-No additional community-contributed Stata packages are required. Optional custom-font verification uses platform utilities documented below.
+No additional community-contributed Stata packages are required.
 
 <a id="quickstart"></a>
 
@@ -162,7 +162,7 @@ datadoc using "missing_codes.docx", replace ///
 | `pagebreak` | Default: Off. Start every variable description on a new page. |
 | `misshighlight(#)` | Default: 10. Highlight missing-data rows strictly above this percentage; real values from 0 through 100. |
 
-Normal size applies to body text, tables, variable banners, and documentation headings. Major headings and description-section headings use `max(12, fontsize + 3)` points. The title uses 14 points. Inventory section names use bold normal-size text. Multiword font names must be quoted with double quotes. Empty or whitespace-only `fontname()` selects Arial.
+Normal size applies to body text, tables, variable banners, and documentation headings. Major headings and description-section headings use `max(12, fontsize + 3)` points. The title uses 14 points. Inventory section names use bold normal-size text. Multiword font names should be quoted with double quotes. Empty or whitespace-only `fontname()` selects Arial.
 
 Percentages use two decimals. All-integer numeric variables display integer minima, maxima, percentiles, and medians without decimals. Fractional results, means, SDs, skewness, and kurtosis use the number of decimal places specified in `decimals()`. Date/Time summaries use the existing format. `strwidth()` shortens string-value displays with an ellipsis; full values determine frequencies and distinct counts. It does not shorten notes, section names, units, or other documentation.
 
@@ -175,7 +175,7 @@ If using codebook sections to group variables, there is a page break after the f
 | `quiet` | Suppress calculation/rendering progress and completion messages; still produces diagnostic tables and font notices; this is different behavior than Stata's `quietly` prefix; default is off. |
 | `reportwarnings` | Adds Review diagnostics to the Word document; default is off. |
 
-`quiet` suppresses the version banner, calculation progress, rendering progress, saving message, and final saved-file message. Classification reviews, the inferred-Identifier review, undefined-code diagnostics, and font-fallback notices remain visible even under `quiet`. Stata may print its own save confirmation. Stata’s `quietly` prefix suppresses Results output separately from datadoc’s `quiet` option.
+`quiet` suppresses the version banner, calculation progress, rendering progress, saving message, and final saved-file message. Classification reviews, the inferred-Identifier review, and undefined-code diagnostics notices remain visible even under `quiet`. Stata may print its own save confirmation. Stata’s `quietly` prefix suppresses Results output separately from datadoc’s `quiet` option.
 
 `reportwarnings` appends Review diagnostics after the missing-data report in the generated Word docx. It includes inferred numeric Quantitative/Categorical warnings and valid observations with codes absent from active label definitions. If none are generated, the section states this. The separate inferred-Identifier matching-rule table is shown in the Stata Results window only and is not added to the docx codebook by this option.
 
@@ -553,7 +553,6 @@ Use `return list` immediately after successful completion. `datadoc` is r-class 
 | `r(summary)` | basic or full. |
 | `r(fontname)` | Resolved family. |
 | `r(requestedfont)` | Requested family; empty when omitted. |
-| `r(fontstatus)` | default, verified-local, or fallback. |
 
 <a id="metadata"></a>
 
@@ -599,7 +598,7 @@ Classification codes are `quantitative`, `continuous`, `discrete`, `categorical`
 
 ## Document handling, limits, and requirements
 
-Before font verification, copying data, or calculating statistics, `datadoc` checks for an active putdocx document. If one is open, it exits with return code 110 and instructions to save the active putdocx document or explicitly discard it using `putdocx clear`. It does not change or clear the existing document as this may cause unintended docx data loss of the earlier open document. `replace` does not bypass this check.
+Before copying data or calculating statistics, `datadoc` checks for an active putdocx document. If one is open, it exits with return code 110 and instructions to save the active putdocx document or explicitly discard it using `putdocx clear`. It does not change or clear the existing document as this may cause unintended docx data loss of the earlier open document. `replace` does not bypass this check.
 
 ```stata
 putdocx clear
